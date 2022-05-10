@@ -19,6 +19,11 @@
     "prettier": "^2.6.2"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "@hapi/boom": "^9.1.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "mysql2": "^2.3.3"
   }
 }

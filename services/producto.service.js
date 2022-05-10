@@ -1,4 +1,4 @@
-
+const boom = require('@hapi/boom');
 
 class ProductosService {
   constructor() {
@@ -40,15 +40,16 @@ class ProductosService {
   }
 
   async findOne(id) {
-    const productos = this.productos.find(item => item.id == id)
-
-    return productos;
+    const producto = this.productos.find(item => item.id == id)
+    if (!producto) {
+      throw boom.notFound('product not found')
+    }
+    return producto;
   }
 
   async update(id, changes) {
     const index = this.productos.findIndex(item => item.id == id) //findIndex para encontrar la posicion del objecto en el array
     if (index === -1) {
-      console.log(index);
       throw ('product not found22222')
     }
     const producto = this.productos[index] // el porducto lo sacamos de la posicion deseada
